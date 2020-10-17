@@ -34,9 +34,7 @@ class IntlProvider extends React.Component {
 
   render() {
     return (
-      <TranslateProvider
-        value={{ translate: this.translate, getLocale: this.getLocale.bind(this), getLocaleName: this.getLocaleName.bind(this) }}
-      >
+      <TranslateProvider value={{ translate: this.translate, locale: this.props.locale, localeName: this.props.localeName }}>
         {this.props.children}
       </TranslateProvider>
     );
