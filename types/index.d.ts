@@ -1,38 +1,38 @@
-import { Provider } from 'react';
+import React,{ Provider } from 'react';
 import { Reducer } from 'redux';
 // declare index;
 
-type WithTranslate = () => any;
-interface Translations {
+export type withTranslate = () => any;
+export interface Translations {
   [key: string]: any;
 }
-interface Placeholders {
+export interface Placeholders {
   [key: string]: any;
 }
-interface IntlProviderProps {
+export interface IntlProviderProps {
   translations: Translations;
   locale: string;
 }
-interface IntlProviderProps {
+export interface IntlActions {
   setLocale(locale: string): void;
 }
 
-interface Params {
+export interface Params {
   [key: string]: string;
 }
 
-type Translate = (key: string, params: Params) => string | undefined;
+export type Translate = (key: string, params: Params) => string | undefined;
 
-type TranslateUtil = (
+export function TranslateUtil (
   translations: Translations,
   locale: string,
   key: string,
   placeholders: Placeholders,
   isHTML: boolean,
   options: any,
-) => (
+) : (
   translateKey: string,
-  translations: TranslateUtil,
+  translations: Translations,
   locale: string,
   key: string,
   placeholders: Placeholders,
@@ -40,14 +40,11 @@ type TranslateUtil = (
   options?: any,
 ) => string;
 
-type IntlProvider = Provider<IntlProviderProps>;
-type useTranslate = () => Translate;
+export declare class IntlProvider extends React.Component<IntlProviderProps>{}
 
-export interface Intl {
-  IntlReducer: Reducer<>;
-  withTranslate: WithTranslate;
-  IntlProvider: IntlProvider;
-  IntlActions: IntlActions;
-  translateUtil: TranslateUtil;
-  useTranslate: UseTranslate;
-}
+export function useTranslate(): Translate;
+
+
+export type IntrlReducer = Reducer<any>;
+
+
