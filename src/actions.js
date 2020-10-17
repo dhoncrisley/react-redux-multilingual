@@ -1,7 +1,7 @@
-export function setLocale(locale, name) {
+export function setLocale(locale, localeName) {
   return {
     type: 'SET_LOCALE',
     locale,
-    name,
+    localeName,
   };
 }
