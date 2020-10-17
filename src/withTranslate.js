@@ -1,5 +1,5 @@
-import React from 'react'
-import { TranslateConsumer } from './context'
+import React from 'react';
+import { TranslateConsumer } from './context';
 
 /**
  * Access translate function
@@ -8,12 +8,8 @@ import { TranslateConsumer } from './context'
  */
 function withTranslate(WrappedComponent) {
   return React.forwardRef((props, ref) => (
-    <TranslateConsumer>
-      {translate => (
-        <WrappedComponent {...props} translate={translate} ref={ref} />
-      )}
-    </TranslateConsumer>
-  ))
+    <TranslateConsumer>{(translate) => <WrappedComponent {...props} {...translate} ref={ref} />}</TranslateConsumer>
+  ));
 }
 
-export default withTranslate
+export default withTranslate;

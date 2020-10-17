@@ -30,11 +30,11 @@ class IntlProvider extends React.Component {
     return translate(translateFn, this.props.translations, this.props.locale, key, placeholders, isHTML, options);
   };
   getLocale = () => this.props.locale;
-  getLocaleName = () => this.props.localeName;
+  getlocale_name = () => this.props.locale_name;
 
   render() {
     return (
-      <TranslateProvider value={{ translate: this.translate, locale: this.props.locale, localeName: this.props.localeName }}>
+      <TranslateProvider value={{ translate: this.translate, locale: this.props.locale, locale_name: this.props.locale_name }}>
         {this.props.children}
       </TranslateProvider>
     );
